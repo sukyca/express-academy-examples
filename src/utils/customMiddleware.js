@@ -1,10 +1,18 @@
+const _ = require('lodash');
+const { 
+  errorDescriptor,
+  ERROR_INVALID_AUTHENTICATION_TOKEN,
+  ERROR_INVALID_AUTHENTICATION_TOKEN_BAD_FORMAT,
+  ERROR_INVALID_CORS_POLICY,
+  ERROR_INTERNAL_SERVER_ERROR,
+} = require('./../errors');
 const jwtExpressFunction = require('express-jwt');
 
-const jwtExpress = jwtExpressFunction({
-  secret: jwtExpressSecret,
-  requestProperty: 'auth',
-  credentialsRequired: true,
-});
+// const jwtExpress = jwtExpressFunction({
+//   secret: jwtExpressSecret,
+//   requestProperty: 'auth',
+//   credentialsRequired: true,
+// });
 
 const customCORSAndAuthErrorMiddleware = (err, req, res, next) => {
   if (err.name === 'UnauthorizedError' && _.get(err, 'code') === 'credentials_required') {
@@ -39,6 +47,6 @@ const customCORSAndAuthErrorMiddleware = (err, req, res, next) => {
 };
 
 module.exports = {
-  jwtExpress,
+  // jwtExpress,
   customCORSAndAuthErrorMiddleware,
 };

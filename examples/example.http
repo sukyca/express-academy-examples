@@ -1,0 +1,56 @@
+GET http://localhost:3000 HTTP/1.1
+
+###
+
+GET http://localhost:3000/users HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkdvcmRhbiIsImlhdCI6MTcxNjIzOTAyMn0.jm1RiFfJT-xQdzmYdgGP_IFhnu-MOel5qDUfNfhDq0k
+
+###
+# Invalid token
+GET http://localhost:3000/users HTTP/1.1
+Authorization: Bearer eJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkdvcmRhbiIsImlhdCI6MTcxNjIzOTAyMn0.jm1RiFfJT-xQdzmYdgGP_IFhnu-MOel5qDUfNfhDq0k
+
+
+POST http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+###
+
+GET http://localhost:3000/async HTTP/1.1
+
+###
+
+GET http://localhost:3000/error HTTP/1.1
+
+###
+
+GET http://localhost:3000/404 HTTP/1.1
+
+###
+
+GET http://localhost:3000/my-profile HTTP/1.1
+
+###
+
+
+# Final
+
+GET http://localhost:3000/public-key HTTP/1.1
+
+###
+
+# Sign
+
+GET http://localhost:3000/sign-content/1337 HTTP/1.1
+
+###
+
+GET http://localhost:3000/users HTTP/1.1
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMzM3IiwiaWF0IjoxNjI5MDYzMzk4fQ.eig5TQIleENOvi9blXyXbryPQCyaMHkeHOWjx3-PXD3bKu0wtfJtTMp7j_62jad1eVTlwlLG4rqebbOIqVVM-IJecTqsh6Y7tD8nlGLoBtb9WUhT9Ks0iM1LOUjJqQxO8k7VNOX4dksNTaBoD-euvXuuU6-s7Jg4ftZE6OxV8ReeS_sIp5vsJxpp5bFJoYS2x_qd5GgiMxcF7BGI2nHjTLDA2ZQPXN9Bp2paboucMfpIgMpSY2O3WDYBQ4IzyVIJYwY7V4T45OP_6KY4F7HjPgcQMTqWkHFjJHYX5Coe8M3LKYx0cPbwTOl77vO9_Un8BR0EuGSl2JDuIYnY4CpuAw
+
+###

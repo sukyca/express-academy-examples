@@ -11,6 +11,8 @@ const express = require('express');
 const morgan = require('morgan');
 const jwtExpress = require('express-jwt');
 
+const { customCORSAndAuthErrorMiddleware } = require('./../src/utils/customMiddleware');
+
 const app = express();
 
 app.get('/', (req, res) => {
@@ -18,16 +20,20 @@ app.get('/', (req, res) => {
 })
 
 app.get('/users',
-  jwtExpress({ secret: '!secret_that_I_cant_share!', algorithms: ['HS256'] }),
+  jwtExpress({
+    secret: '!secret_that_I_cant_share!',
+    algorithms: ['HS256'],
+    requestProperty: 'auth', // Default is 'user'
+  }),
+  customCORSAndAuthErrorMiddleware,
   (req, res, next) => {
-    if (!req.user) {
-      return res.sendStatus(401);
+    if (!req.auth) {
+      return res.sendStatus(403);
     }
-    res.sendStatus(200);
     next()
   }, 
   (req, res) => {
-  res.send(`Users Page! ${JSON.stringify(req.user)}`);
+  res.send(`Users Page! ${JSON.stringify(req.auth)}`);
 })
 
 
