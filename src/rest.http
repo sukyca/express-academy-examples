@@ -1,0 +1,23 @@
+GET http://localhost:8003 HTTP/1.1
+
+###########
+
+GET http://localhost:8003/my-profile HTTP/1.1
+
+###########
+
+GET http://localhost:8003/my-profile HTTP/1.1
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyMzEiLCJpYXQiOjE2MjkxMjAxNDd9.UCXdsPzOQfvgAJDArtZgWmi4FuhgcqHrIz79UzN6w04tiq8p2gT-DmGTz0g_keeJPr1hYFVSFZEeq2vA3MLivRb-Hc4iQAA84OUSvtzoTa71M5YR4R8bbd-FjROFNSf_QpTdR2c9HULNjop5CDOwuVC7Xm-x2YJ-UA08UWjSSsQbmIxLgbK_TSfX-ZPzHbfMWcRcGxsXZXccMwf9vPtCMUEfy3EB-n3WoD_VhyDRqgu2zcGxra1oIbWg29or2G1IAhgRsl3YlHinFLMOGHv0tMiJiVu9ucnMuu4O_ToSraEgTgEQn7PVHEJueOF4t4s-wAKhexgtRDlV_xnJyf9RFg
+
+
+###########
+
+GET http://localhost:8003/sign/231 HTTP/1.1
+
+
+###########
+
+GET http://localhost:8003/public HTTP/1.1
+
+
+###########
